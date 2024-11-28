@@ -1,0 +1,19 @@
+{
+  "name": "web-game-server",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.16.0",
+    "@typescript-eslint/parser": "^8.16.0",
+    "eslint": "^9.15.0"
+  }
+}

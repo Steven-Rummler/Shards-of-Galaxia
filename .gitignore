@@ -1,0 +1,12 @@
+.cache
+.DS_Store
+.env
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+.next
+.vercel
+*.tsbuildinfo
+next-env.d.ts
+node_modules
