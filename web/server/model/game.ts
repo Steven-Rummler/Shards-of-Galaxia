@@ -14,6 +14,12 @@ export class Game {
     if (this.round > 0) throw new Error("Game has already started");
     this.players.push(player);
   }
+  removePlayer(player: Player) {
+    if (this.round > 0) throw new Error("Game has already started");
+    const playerIndex = this.players.indexOf(player);
+    if (playerIndex === -1) throw new Error("Player not found");
+    this.players.splice(playerIndex, 1);
+  }
   nextRound() {
     this.round++;
   }
