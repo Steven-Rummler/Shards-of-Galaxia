@@ -2,14 +2,13 @@ import type { Card } from "./card";
 
 export class Player {
   name: string;
-  hand: Card[];
+  population: number = 1;
+  hand: Card[] = [];
   playingCard?: Card;
-  influencedByPlayers: { playerName: string, influenceLevel: number }[];
+  influencedByPlayers: { playerName: string, influenceLevel: number }[] = [];
 
   constructor(name: string) {
     this.name = name;
-    this.hand = [];
-    this.influencedByPlayers = [];
   }
   addCard(card: Card) {
     this.hand.push(card);

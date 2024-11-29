@@ -1,14 +1,14 @@
+import { eras } from "../data/eras";
 import type { Player } from "./player";
 
 export class Game {
   id: string;
-  players: Player[];
-  round: number;
+  players: Player[] = [];
+  gamespeed: 'quick' | 'normal' | 'marathon' = 'normal';
+  round: number = 0;
 
   constructor(existingIds: string[]) {
     this.id = generateId(existingIds);
-    this.players = [];
-    this.round = 0;
   }
   addPlayer(player: Player) {
     if (this.round > 0) throw new Error("Game has already started");
@@ -22,6 +22,13 @@ export class Game {
   }
   nextRound() {
     this.round++;
+  }
+  era() {
+    const highestCurrentPopulation = this.players.reduce((max, player) => Math.max(max, player.population), 0);
+    for (const era of eras) {
+      if (highestCurrentPopulation >= era.minPopulation) return era.name;
+    }
+    return 'Era';
   }
 }
 
